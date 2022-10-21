@@ -84,7 +84,6 @@ scene.add(plane)
 
 updateRenderer()
 export const controls = new OrbitControls(camera, renderer.domElement)
-controls.enabledDamping = true
 
 function animate() {
   requestAnimationFrame(animate)
