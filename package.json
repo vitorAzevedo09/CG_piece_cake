@@ -15,6 +15,7 @@
     "vite": "^3.1.0"
   },
   "dependencies": {
+    "@tweakpane/plugin-essentials": "^0.1.5",
     "@types/node": "^18.11.3",
     "three": "^0.145.0",
     "tweakpane": "^3.1.0"

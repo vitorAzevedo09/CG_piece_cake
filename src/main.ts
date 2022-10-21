@@ -3,6 +3,7 @@ import * as THREE from "three"
 import "./core/controls"
 import { renderer, updateRenderer } from "./core/renderer"
 import { camera } from "./core/camera"
+import { gui, fpsGraph } from "./core/gui"
 
 const scene = new THREE.Scene()
 
@@ -22,11 +23,37 @@ const sphere = new THREE.Mesh(
   new THREE.SphereGeometry(1, 32, 32),
   new THREE.MeshToonMaterial({
     color: new THREE.Color("#5EDCAE"),
+    wireframe: false,
   })
 )
 
 sphere.position.set(0, 2, 0)
 sphere.castShadow = true
+
+const sphereCtrls = gui.addFolder({
+  title: "Sphere",
+})
+
+sphereCtrls.addInput(sphere.position, "x", {
+  label: "pos x",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
+sphereCtrls.addInput(sphere.position, "y", {
+  label: "pos y",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
+sphereCtrls.addInput(sphere.position, "z", {
+  label: "pos z",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
+
+sphereCtrls.addInput(sphere.material, "wireframe")
 
 scene.add(sphere)
 
@@ -45,6 +72,8 @@ updateRenderer()
 
 function animate() {
   requestAnimationFrame(animate)
+  fpsGraph.begin()
   renderer.render(scene, camera)
+  fpsGraph.end()
 }
 animate()
