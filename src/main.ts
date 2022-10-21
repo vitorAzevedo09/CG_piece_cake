@@ -4,6 +4,7 @@ import "./core/controls"
 import { renderer, updateRenderer } from "./core/renderer"
 import { camera } from "./core/camera"
 import { gui, fpsGraph } from "./core/gui"
+import WebGL from "three/examples/jsm/capabilities/WebGL.js"
 
 const scene = new THREE.Scene()
 
@@ -76,4 +77,11 @@ function animate() {
   renderer.render(scene, camera)
   fpsGraph.end()
 }
-animate()
+
+if (WebGL.isWebGLAvailable()) {
+  // Initiate function or other initializations here
+  animate()
+} else {
+  const warning = WebGL.getWebGLErrorMessage()
+  document.getElementById("#app").appendChild(warning)
+}
