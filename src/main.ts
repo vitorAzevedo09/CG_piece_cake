@@ -72,10 +72,10 @@ scene.add(plane)
 updateRenderer()
 
 function animate() {
-  requestAnimationFrame(animate)
   fpsGraph.begin()
   renderer.render(scene, camera)
   fpsGraph.end()
+  requestAnimationFrame(animate)
 }
 
 if (WebGL.isWebGLAvailable()) {
@@ -83,5 +83,6 @@ if (WebGL.isWebGLAvailable()) {
   animate()
 } else {
   const warning = WebGL.getWebGLErrorMessage()
-  document.getElementById("#app").appendChild(warning)
+  const app = document.querySelector("#experience")
+  app!.appendChild(warning)
 }

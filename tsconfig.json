@@ -15,7 +15,10 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,
-    "types": ["node", "vite/client", "three"]
+    "types": ["vite/client", "three", "tweakpane"],
+    "paths": {
+      "/@/*": ["./src/*"]
+    }
   },
   "include": ["src"]
 }
