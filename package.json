@@ -18,6 +18,7 @@
     },
     "dependencies": {
         "@types/node": "^18.11.3",
+        "build": "^0.1.4",
         "three": "^0.145.0"
     }
 }

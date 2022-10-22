@@ -14,16 +14,21 @@ scene.add(ambientLight)
 const directionalLight = new THREE.DirectionalLight("#ffffff", 2)
 directionalLight.castShadow = true
 directionalLight.shadow.mapSize.set(1024, 1024)
-directionalLight.shadow.camera.far = 15
-directionalLight.shadow.normalBias = 0.05
+directionalLight.shadow.camera.far = 500
+directionalLight.shadow.normalBias = 0.5
 directionalLight.position.set(0.25, 2, 2.25)
 
 scene.add(directionalLight)
 
+const PARAMS = {
+  color: "#5EDCAE",
+  diameter: 80,
+}
+
 const sphere = new THREE.Mesh(
   new THREE.SphereGeometry(1, 32, 32),
   new THREE.MeshToonMaterial({
-    color: new THREE.Color("#5EDCAE"),
+    color: new THREE.Color(PARAMS.color),
     wireframe: false,
   })
 )
@@ -53,6 +58,8 @@ sphereCtrls.addInput(sphere.position, "z", {
   max: 10,
   step: 0.1,
 })
+console.log(sphere.material)
+sphereCtrls.addInput(PARAMS, "color")
 
 sphereCtrls.addInput(sphere.material, "wireframe")
 
@@ -73,6 +80,7 @@ updateRenderer()
 
 function animate() {
   fpsGraph.begin()
+  sphere.material.color = new THREE.Color(PARAMS.color)
   renderer.render(scene, camera)
   fpsGraph.end()
   requestAnimationFrame(animate)
