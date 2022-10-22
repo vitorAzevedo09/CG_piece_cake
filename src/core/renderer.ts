@@ -6,7 +6,7 @@ const canvas: HTMLElement = document.querySelector("#experience") as HTMLElement
 export const renderer = new WebGLRenderer({
   canvas,
 })
-renderer.setSize(sizes.width, sizes.height)
+renderer.setSize(window.innerWidth, window.innerHeight)
 
 // var size_window = new Vector2()
 // renderer.getSize(size_window)
