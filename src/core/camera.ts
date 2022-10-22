@@ -2,7 +2,7 @@ import { PerspectiveCamera } from "three"
 
 const VERTICAL_FIELD_OF_VIEW = 45
 const NEAR = 0.1
-const FAR = 10000
+const FAR = 100
 
 export const sizes = {
   width: window.innerWidth,
@@ -17,9 +17,6 @@ export const camera = new PerspectiveCamera(
 )
 
 camera.position.set(9, 4, 9)
-camera.lookAt(100, 100, 0)
-camera.updateProjectionMatrix()
-console.log(camera)
 
 window.addEventListener("resize", () => {
   sizes.width = window.innerWidth
