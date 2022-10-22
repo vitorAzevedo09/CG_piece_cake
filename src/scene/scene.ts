@@ -73,7 +73,9 @@ sphereCtrls.addInput(sphere.position, "z", {
   step: 0.1,
 })
 console.log(sphere.material)
-sphereCtrls.addInput(PARAMS, "color")
+sphereCtrls.addInput(PARAMS, "color").on("change", (ev) => {
+  sphere.material.color = new Color(ev.value)
+})
 
 sphereCtrls.addInput(sphere.material, "wireframe")
 
@@ -91,6 +93,5 @@ plane.rotation.set(-Math.PI / 2, 0, 0)
 scene.add(plane)
 
 export function updateScene() {
-  sphere.material.color = new Color(PARAMS.color)
   updateRenderer()
 }
