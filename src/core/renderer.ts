@@ -20,7 +20,7 @@ renderer.physicallyCorrectLights = true
 
 export function updateRenderer() {
   renderer.setSize(sizes.width, sizes.height)
-  renderer.setPixelRatio(Math.min(sizes.width / sizes.height, 2))
+  renderer.setPixelRatio(Math.min(sizes.width / sizes.height, 3))
 }
 
 window.addEventListener("resize", () => {
