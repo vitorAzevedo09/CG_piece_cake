@@ -8,6 +8,14 @@ import WebGL from "three/examples/jsm/capabilities/WebGL.js"
 
 const scene = new THREE.Scene()
 
+// Axes Helper
+const axesHelper = new THREE.AxesHelper(0.5)
+scene.add(axesHelper)
+
+gui.addInput(axesHelper, "visible", {
+  label: "AxesHelper",
+})
+
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
 scene.add(ambientLight)
 
@@ -26,7 +34,7 @@ const PARAMS = {
 }
 
 const sphere = new THREE.Mesh(
-  new THREE.SphereGeometry(1, 32, 32),
+  new THREE.SphereGeometry(0.75, 32, 32),
   new THREE.MeshToonMaterial({
     color: new THREE.Color(PARAMS.color),
     wireframe: false,

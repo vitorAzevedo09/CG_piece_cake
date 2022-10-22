@@ -1,4 +1,7 @@
-import { WebGLRenderer, PCFShadowMap } from "three"
+import {
+  WebGLRenderer,
+  PCFShadowMap,
+} from "three"
 import { sizes } from "./camera"
 
 const canvas: HTMLElement = document.querySelector("#experience") as HTMLElement
@@ -14,13 +17,16 @@ renderer.setSize(window.innerWidth, window.innerHeight)
 // console.log(size_window)
 document.body.appendChild(renderer.domElement)
 
+// More realistic shadows
 renderer.shadowMap.enabled = true
 renderer.shadowMap.type = PCFShadowMap
 renderer.physicallyCorrectLights = true
 
+renderer.toneMappingExposure = 1
+
 export function updateRenderer() {
   renderer.setSize(sizes.width, sizes.height)
-  renderer.setPixelRatio(Math.min(sizes.width / sizes.height, 3))
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 }
 
 window.addEventListener("resize", () => {
