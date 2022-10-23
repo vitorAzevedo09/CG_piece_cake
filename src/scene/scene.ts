@@ -72,9 +72,8 @@ sphereCtrls.addInput(sphere.position, "z", {
   max: 10,
   step: 0.1,
 })
-console.log(sphere.material)
-sphereCtrls.addInput(PARAMS, "color").on("change", (ev) => {
-  sphere.material.color = new Color(ev.value)
+sphereCtrls.addInput(PARAMS, "color").on("change", (e) => {
+  sphere.material.color = new Color(e.value)
 })
 
 sphereCtrls.addInput(sphere.material, "wireframe")
