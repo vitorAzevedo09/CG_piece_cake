@@ -1,7 +1,4 @@
-import {
-  WebGLRenderer,
-  PCFShadowMap,
-} from "three"
+import { WebGLRenderer, PCFShadowMap } from "three"
 import { sizes } from "./camera"
 
 const canvas: HTMLElement = document.querySelector("#experience") as HTMLElement
