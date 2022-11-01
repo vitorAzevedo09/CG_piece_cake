@@ -12,8 +12,6 @@ import {
     CylinderGeometry,
     CircleGeometry,
     TetrahedronGeometry,
-    PointsMaterial,
-    Points
 } from "three"
 import {updateRenderer} from "../core/renderer"
 
