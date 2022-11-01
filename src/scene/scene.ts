@@ -10,7 +10,10 @@ import {
     BoxGeometry,
     ConeGeometry,
     CylinderGeometry,
-    CircleGeometry
+    CircleGeometry,
+    TetrahedronGeometry,
+    PointsMaterial,
+    Points
 } from "three"
 import {updateRenderer} from "../core/renderer"
 
@@ -190,6 +193,38 @@ topCake.rotateX(-Math.PI / 2);
 topCake.position.set(0, 2.22, 0.96);
 
 scene.add(topCake);
+
+// Strawberries
+
+const strawberryMaterial = new MeshBasicMaterial({color: 0xc21529})
+
+const strawberry1 = new Mesh(
+    new TetrahedronGeometry(8.55, 3),
+    strawberryMaterial,
+)
+
+strawberry1.scale.set(0.02,0.02,0.02);
+strawberry1.position.set(0, 2.3, -0.96);
+
+const strawberry2 = new Mesh(
+    new TetrahedronGeometry(8.55, 3),
+    strawberryMaterial,
+)
+
+strawberry2.scale.set(0.02,0.02,0.02);
+strawberry2.position.set(0.4, 2.3, -0.89);
+
+const strawberry3 = new Mesh(
+    new TetrahedronGeometry(8.55, 3),
+    strawberryMaterial,
+)
+
+strawberry3.scale.set(0.02,0.02,0.02);
+strawberry3.position.set(-0.4, 2.3, -0.89);
+
+scene.add(strawberry1);
+scene.add(strawberry2);
+scene.add(strawberry3);
 
 export function updateScene() {
     updateRenderer()
