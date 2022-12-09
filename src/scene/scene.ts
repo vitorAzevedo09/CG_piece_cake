@@ -1,4 +1,7 @@
 import {
+    MeshPhysicalMaterial,
+    MeshPhongMaterial,
+    PointLight,
     Scene,
     AmbientLight,
     DirectionalLight,
@@ -14,8 +17,39 @@ import {
     TetrahedronGeometry,
 } from "three"
 import {updateRenderer} from "../core/renderer"
+import {gui} from "../core/gui"
 
 export const scene = new Scene()
+
+const pointLight1 = new PointLight(0xffffff, 40, 4, 0.4)
+pointLight1.position.set(1.1, 3.3, 1.7)
+scene.add(pointLight1)
+
+const pointLightCtrls = gui.addFolder({
+    title: "Point Light"
+})
+
+pointLightCtrls.addInput(pointLight1.position, "x", {
+    label: "pos x",
+    min: -10,
+    max: 10,
+    step: 0.1,
+})
+
+pointLightCtrls.addInput(pointLight1.position, "y", {
+    label: "pos y",
+    min: -10,
+    max: 10,
+    step: 0.1,
+})
+
+pointLightCtrls.addInput(pointLight1.position, "z", {
+    label: "pos z",
+    min: -10,
+    max: 10,
+    step: 0.1,
+})
+
 
 // Light Code
 const ambientLight = new AmbientLight(0xffffff, 0.5)
@@ -44,7 +78,7 @@ plane.rotation.set(-Math.PI / 2, 0, 0)
 scene.add(plane)
 
 // Plate Code
-const material = new MeshBasicMaterial({color: 0xffffff});
+const material = new MeshPhongMaterial({color: 0xffffff});
 
 const basePlate = new Mesh(
     new BoxGeometry(1, 1, 0.5)
@@ -64,7 +98,7 @@ scene.add(topPlate);
 
 // Piece of cake code
 
-const cakeMaterial = new MeshBasicMaterial({color: 0x5c63c})
+const cakeMaterial = new MeshPhysicalMaterial({color: 0x5c63c})
 
 const sideLeft = new Mesh(
     new BoxGeometry(0.01, 0.5, 2.02),
@@ -201,7 +235,7 @@ const strawberry1 = new Mesh(
     strawberryMaterial,
 )
 
-strawberry1.scale.set(0.02,0.02,0.02);
+strawberry1.scale.set(0.02, 0.02, 0.02);
 strawberry1.position.set(0, 2.3, -0.96);
 
 const strawberry2 = new Mesh(
@@ -209,7 +243,7 @@ const strawberry2 = new Mesh(
     strawberryMaterial,
 )
 
-strawberry2.scale.set(0.02,0.02,0.02);
+strawberry2.scale.set(0.02, 0.02, 0.02);
 strawberry2.position.set(0.4, 2.3, -0.89);
 
 const strawberry3 = new Mesh(
@@ -217,7 +251,7 @@ const strawberry3 = new Mesh(
     strawberryMaterial,
 )
 
-strawberry3.scale.set(0.02,0.02,0.02);
+strawberry3.scale.set(0.02, 0.02, 0.02);
 strawberry3.position.set(-0.4, 2.3, -0.89);
 
 scene.add(strawberry1);
