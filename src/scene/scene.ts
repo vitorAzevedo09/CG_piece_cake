@@ -1,5 +1,6 @@
 import {
     MeshPhysicalMaterial,
+    MeshLambertMaterial,
     MeshPhongMaterial,
     PointLight,
     Scene,
@@ -228,7 +229,7 @@ scene.add(topCake);
 
 // Strawberries
 
-const strawberryMaterial = new MeshBasicMaterial({color: 0xc21529})
+const strawberryMaterial = new MeshLambertMaterial({color: 0xc21529})
 
 const strawberry1 = new Mesh(
     new TetrahedronGeometry(8.55, 3),
